@@ -20,10 +20,6 @@ func GetDBClient() DbClient {
 }
 
 func dbConn() (db *gorm.DB) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 9e05657d28cafec9212b2acb586f927fc7162ec6
 
 	dsn := "root:*****@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
