@@ -18,11 +18,11 @@ type Weather struct {
 }
 
 type CityWeather struct {
-	Date        string `json:"column:CREATE_DATE"`
-	City        string `json:"column:CITY"`
-	WeatherDesc string `json:"column:WEATHER"`
-	Temp        string `json:"column:TEMPR"`
-	Humidity    string `json:"column:HUMIDITY"`
+	Date        string `gorm:"column:CREATE_DATE"`
+	City        string `gorm:"column:CITY"`
+	WeatherDesc string `gorm:"column:WEATHER"`
+	Temp        string `gorm:"column:TEMPR"`
+	Humidity    string `gorm:"column:HUMIDITY"`
 }
 
 func (CityWeather) TableName() string {
