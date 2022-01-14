@@ -2,10 +2,7 @@ module github.com/aksharau/GoGormExamples
 
 go 1.17
 
-require (
-	github.com/stretchr/testify v1.7.0
-	gorm.io/driver/mysql v1.2.3
-)
+require gorm.io/driver/mysql v1.2.3
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -20,5 +17,6 @@ require (
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stretchr/testify v1.7.0
 	gorm.io/gorm v1.22.5
 )
