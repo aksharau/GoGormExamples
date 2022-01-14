@@ -22,7 +22,7 @@ var rootCmd = &cobra.Command{
 		restC := rest.GetRestClient(ApiKey)
 		weather := restC.GetWeather(City)
 		dbRec := model.MapToCityWeather(weather)
-
+		fmt.Println("REc is %+v", dbRec)
 		dbC := db.GetDBClient()
 
 		dbC.SaveWeather(dbRec)

@@ -30,13 +30,15 @@ func (r *RestClient) GetWeather(city string) model.Weather {
 		fmt.Println(err.Error())
 	}
 
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Accept", "*/*")
+	//req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Accept-Encoding", "application/json")
+	req.Header.Add("Connection", "keep-alive")
 
 	res, err := r.client.Do(req)
 
 	if err != nil {
-		fmt.Println(err.Error())
+		panic(err.Error())
 	}
 
 	defer res.Body.Close()
@@ -58,7 +60,7 @@ func (r *RestClient) GetWeather(city string) model.Weather {
 
 func getURL(city string, key string) string {
 
-	str := "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
+	str := "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
 
 	return str
 }

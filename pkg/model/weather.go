@@ -2,6 +2,7 @@ package model
 
 import (
 	"reflect"
+	"strconv"
 	"time"
 )
 
@@ -11,8 +12,8 @@ type Weather struct {
 		Description string `json:"description"`
 	} `json:"weather"`
 	Temp struct {
-		Tempr    string `json:"temp"`
-		Humidity string `json:"humidity"`
+		Tempr    float64 `json:"temp"`
+		Humidity int     `json:"humidity"`
 	} `json:"main"`
 }
 
@@ -32,8 +33,8 @@ func MapToCityWeather(i Weather) CityWeather {
 	c := CityWeather{}
 	c.City = i.City
 	c.Date = time.Now().Format(time.RFC3339)
-	c.Humidity = i.Temp.Humidity
-	c.Temp = i.Temp.Tempr
+	c.Humidity = string(i.Temp.Humidity)
+	c.Temp = strconv.FormatFloat(i.Temp.Tempr, 'E', -1, 64)
 	if i.Weather != nil {
 		c.WeatherDesc = i.Weather[0].Description
 	}
